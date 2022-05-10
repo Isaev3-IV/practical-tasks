@@ -1,8 +1,6 @@
-// Функция поиска самого короткого слова:
-
 //Classic->
 function checkMinWord(phrase) {
-  const newStroke = phrase.replace(/[^a-zA-Z]/gm, " ");
+  const newStroke = phrase.replace(/[^a-zA-Z ]/gm, " ");
   const phraseToArr = newStroke.split(" ");
   const newArr = [];
 
@@ -16,7 +14,7 @@ function checkMinWord(phrase) {
 
 // ES6
 function checkMinWord(phrase) {
-  const newStroke = phrase.replace(/[^a-zA-Z]/gm, " ");
+  const newStroke = phrase.replace(/[^a-zA-Z ]/gm, "");
   const phraseToArr = newStroke.split(" ");
   let arr = [];
 
