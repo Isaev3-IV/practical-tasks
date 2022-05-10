@@ -1,29 +1,24 @@
-//Classic->
-function checkMinWord(phrase) {
-  const newStroke = phrase.replace(/[^a-zA-Z ]/gm, " ");
-  const phraseToArr = newStroke.split(" ");
-  const newArr = [];
+// Функция создания инициалов:
 
-  for (let item of phraseToArr) {
-    if (item) {
-      newArr.push(item);
-    }
+//Classic->
+function toInitial(names) {
+  let separateArr = names.split(" ");
+  let str = "";
+
+  for (let i = 0; i < separateArr.length; i++) {
+    str += `${separateArr[i].slice(0, 1)}. `;
   }
-  return newArr.sort((a, b) => a.length - b.length)[0];
+  return str.toUpperCase();
 }
 
 // ES6
-function checkMinWord(phrase) {
-  const newStroke = phrase.replace(/[^a-zA-Z ]/gm, "");
-  const phraseToArr = newStroke.split(" ");
-  let arr = [];
+function toInitial(names) {
+  let separateArr = names.split(" ");
 
-  for (let item of phraseToArr) {
-    if (item) {
-      arr.push(item.length);
-    }
-  }
-  return phraseToArr.filter((elem) => elem.length === Math.min(...arr));
+  return separateArr
+    .map((elem) => `${elem.slice(0, 1)}.`)
+    .join(" ")
+    .toUpperCase("");
 }
 
-console.log(checkMinWord("How are you, Mr?"));
+console.log(toInitial("Tsoy Sergey"));
