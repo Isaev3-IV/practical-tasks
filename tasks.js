@@ -1,22 +1,31 @@
-//Функция проверки палиндрома:
+// Функция поиска самого короткого слова:
 
 //Classic->
-function isPalindrome(word) {
-  let firstList = "";
-  let secondList = "";
+function checkMinWord(phrase) {
+  const newStroke = phrase.replace(/[^a-zA-Z]/gm, " ");
+  const phraseToArr = newStroke.split(" ");
+  const newArr = [];
 
-  for (let i = 0, k = word.length - 1; k > 0, i < word.length; i++, k--) {
-    firstList += word[i];
-    secondList += word[k];
+  for (let item of phraseToArr) {
+    if (item) {
+      newArr.push(item);
+    }
   }
-  if (firstList === secondList) {
-    return "Function is Polindrom!";
-  }
-  return "Function is not Polindrom!";
+  return newArr.sort((a, b) => a.length - b.length)[0];
 }
 
-//ES6->
-const isPalindrome = (word) => word === word.split("").reverse().join("");
+// ES6
+function checkMinWord(phrase) {
+  const newStroke = phrase.replace(/[^a-zA-Z]/gm, " ");
+  const phraseToArr = newStroke.split(" ");
+  let arr = [];
 
-console.log(isPalindrome("топот"));
-console.log(isPalindrome("krasivo"));
+  for (let item of phraseToArr) {
+    if (item) {
+      arr.push(item.length);
+    }
+  }
+  return phraseToArr.filter((elem) => elem.length === Math.min(...arr));
+}
+
+console.log(checkMinWord("How are you, Mr?"));
