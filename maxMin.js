@@ -9,7 +9,7 @@ function maxMin(num) {
 
 // ES6
 function maxMin(num) {
-  return [(min = Math.min(...num)), Math.max(...num)];
+  return [Math.min(...num), Math.max(...num)];
 }
 
 console.log(maxMin([3, 2, 10, 24, 18, 99]));
